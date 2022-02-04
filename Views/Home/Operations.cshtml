@@ -1,0 +1,24 @@
+@using System.Globalization
+<h1>Effectuer un opération sur un compte de @ViewBag.Customer.FirstName @ViewBag.Customer.LastName</h1>
+<form action="/Home/ValidOperation" method="post">
+    <input type="hidden" name="clientid" value="@ViewBag.Customer.ID">
+    <label for="operation">Quelle opération ? </label> <br>
+    <input type="radio" name="operation" value="retrait"> <span class="text-danger">Retrait</span> <br>
+    <input type="radio" name="operation" value="depot"> <span class="text-success">Dépot</span>
+    <br>
+    <br>
+    <label for="countryname">Choisir un compte</label> <br>
+    <select name="compteid">
+        @foreach (var item in ViewBag.Accounts)
+        {
+            <option value="@item.ID">@item.Type - @item.Balance.ToString("C", CultureInfo.CurrentCulture)</option>
+        }
+    </select>
+ <br>
+    <br>
+    <label for="montant">Montant </label> <br>
+    <input type="text" name="montant"><br>
+    <br>
+    <br>
+    <input type="submit" value="Enregistrer">
+</form>

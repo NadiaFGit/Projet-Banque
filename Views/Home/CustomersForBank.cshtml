@@ -1,0 +1,26 @@
+@model IEnumerable<Examen.Models.Customer>
+
+<h1>Clients de @ViewBag.bankName</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Nom</th>
+            <th scope="col">Prénom</th>
+            <th scope="col">Téléphone</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.LastName</td>
+                <td>@item.FirstName</td>
+                <td>@item.Phone</td>
+                <td><a href="/Home/AccountsForCustomer?id=@item.ID">Voir Comptes</a></td>
+                <td><a href="/Home/Operations?id=@item.ID">Retrait/Dépot</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

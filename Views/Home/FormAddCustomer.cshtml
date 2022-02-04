@@ -1,0 +1,23 @@
+<form action="/Home/AddCustomer" method="post">
+    <label for="nom">Nom </label> <br>
+    <input type="text" name="nom"><br>
+    <br>
+    <label for="prenom">Prénom </label> <br>
+    <input type="text" name="prenom"><br>
+    <br>
+    <label for="telephone">Tétéphone </label> <br>
+    <input type="text" name="telephone"><br>
+    <br>
+
+    <label for="countryname">Choisir une banque</label> <br>
+    <select name="banqueid">
+        @foreach (var item in ViewBag.banks)
+        {
+            <option value="@item.ID">@item.Name</option>
+        }
+    </select>
+
+    <br>
+    <br>
+    <input type="submit" value="Ajouter">
+</form>

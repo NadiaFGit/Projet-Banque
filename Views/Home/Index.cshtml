@@ -1,0 +1,9 @@
+﻿@model IEnumerable<Examen.Models.Bank>
+
+<h1>Liste des banques</h1>
+<ul class="list-group">
+    @foreach (var item in Model)
+    {
+        <li class="list-group-item"><span style="display:inline-block; width:200px">@item.Name</span> <a href="/Home/CustomersForBank?id=@item.ID">Clients</a></li>
+    }
+</ul>

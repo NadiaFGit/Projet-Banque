@@ -1,0 +1,21 @@
+@using System.Globalization
+@model IEnumerable<Examen.Models.Account>
+
+<h1>Comptes de @ViewBag.customerName</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Type</th>
+            <th scope="col">Solde</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Type</td>
+                <td>@item.Balance.ToString("C", CultureInfo.CurrentCulture)</td>
+            </tr>
+        }
+    </tbody>
+</table>
